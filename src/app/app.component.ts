@@ -36,11 +36,18 @@ export class AppComponent implements OnInit {
    calculatePrice() {
     const minLength = Math.min(this.firstOperands.length, this.secondOperands.length, this.operators.length);
     this.results = [];
+    let expression;
+    let condition;
     if(minLength) {
       for(let i = 0; i < minLength; i++) {
-         let condition = (this.firstOperands[i].operand) && (this.secondOperands[i].operand) && (this.operators[i].operator);
+        condition = (this.firstOperands[i].operand) && (this.secondOperands[i].operand) && (this.operators[i].operator);
         if(condition) {
-          let expression = this.firstOperands[i].operand + this.operators[i].operator + this.secondOperands[i].operand;
+          // If operator is minus and the second operand is less than 0 then we must change expression for correct eval() result;
+          if(this.operators[i].operator === "-" && this.secondOperands[i].operand < 0) {
+            expression = this.firstOperands[i].operand + '+' + this.secondOperands[i].operand * -1;
+          } else {
+            expression = this.firstOperands[i].operand + this.operators[i].operator + this.secondOperands[i].operand;\
+          }
           this.results.push(eval(expression));
         }
       }
