@@ -1,0 +1,22 @@
+<form [formGroup]="firstOperandForm" novalidate class="row" >
+  <table formArrayName="operands" class="col s12 m3">
+    <!-- <thead>
+      <tr>
+          <th><button class="btn" type="button">Add col</button></th>
+      </tr>
+    </thead> -->
+
+    <tr [formGroupName]="i" *ngFor="let operandEl of firstOperandForm.controls.operands.controls; let i=index">
+      <td>
+        <input type="number" formControlName="operand">
+      </td>
+      <td>
+        <button class="btn red" type="button"
+          *ngIf="firstOperandForm.controls.operands.controls.length > 1" (click)="removeRow(i)">Delete</button>
+      </td>
+
+    </tr>
+    <button class="btn green" type="button" (click)="addRow()">Add row</button>
+  </table>
+
+</form>

@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+table {
+  min-width: 25%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+tr {
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+td {
+  padding: 15px 10px;
+  width: 100px;
+  height: 100px;
+}
+
+input {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.btn {
+  margin-top: 15px;
+  padding: 3px;
+  border: none;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+}
+
+.red {
+  margin-top: 0;
+  background-color: red;
+  color: white;
+}
+
+.green {
+  background-color: #2bbbad;
+  color: white;
+}
