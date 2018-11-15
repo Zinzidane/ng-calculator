@@ -1,10 +1,8 @@
-<form [formGroup]="operatorForm" novalidate class="row">
-  <table formArrayName="operators" class="col s12 m3">
-    <!-- <thead>
-      <tr>
-          <th><button class="btn" type="button">Add col</button></th>
-      </tr>
-    </thead> -->
+<form [formGroup]="operatorForm" novalidate>
+  <table formArrayName="operators">
+    <thead>
+      <th>Operator</th>
+    </thead>
 
     <tr [formGroupName]="i"  *ngFor="let operatorEl of operatorForm.controls.operators.controls; let i=index">
       <td>
@@ -17,7 +15,7 @@
       </td>
       <td>
         <button class="btn red" type="button"
-          *ngIf="operatorForm.controls.operators.controls.length > 1" (click)="removeOperator(i)">Delete</button>
+          *ngIf="operatorForm.controls.operators.controls.length > 0" (click)="removeOperator(i)">Delete</button>
       </td>
     </tr>
     <button class="btn green" type="button" (click)="addOperator()">Add row</button>

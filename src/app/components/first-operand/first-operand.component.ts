@@ -29,7 +29,7 @@ export class FirstOperandComponent implements OnInit {
     this.firstOperandForm.controls['operands'].valueChanges.subscribe(operands => this.formChanged.emit(operands));
   }
 
-  private getOperands() {
+  getOperands() {
     const numberPatern = '^[0-9.,]+$';
     return this.fb.group({
       operand: ['', [Validators.required,
@@ -37,15 +37,13 @@ export class FirstOperandComponent implements OnInit {
     });
   }
 
-    // add new row
-    private addRow() {
-      const control = <FormArray>this.firstOperandForm.controls['operands'];
-      control.push(this.getOperands());
-    }
+  addRow() {
+    const control = <FormArray>this.firstOperandForm.controls['operands'];
+    control.push(this.getOperands());
+  }
 
-    // remove row
-    private removeRow(i: number) {
-      const control = <FormArray>this.firstOperandForm.controls['operands'];;
-      control.removeAt(i);
+  removeRow(i: number) {
+    const control = <FormArray>this.firstOperandForm.controls['operands'];;
+    control.removeAt(i);
     }
 }

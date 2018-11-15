@@ -23,9 +23,6 @@ export class OperatorComponent implements OnInit {
     });
 
     this.getFormChanges();
-    // const operatorFormValueChanges$ = this.operatorForm.controls['operators'].valueChanges;
-    // // subscribe to the stream so listen to changes on operators
-    // operatorFormValueChanges$.subscribe(operators => console.log(operators));
   }
 
   getFormChanges() {
@@ -33,20 +30,19 @@ export class OperatorComponent implements OnInit {
   }
 
 
-  private getOperators() {
+  getOperators() {
     return this.fb.group({
       operator: ['']
     });
   }
 
-
-  private addOperator() {
+  addOperator() {
     const control = <FormArray>this.operatorForm.controls['operators'];
     control.push(this.getOperators());
   }
 
   // remove row
-  private removeOperator(i: number) {
+  removeOperator(i: number) {
     const control = <FormArray>this.operatorForm.controls['operators'];;
     control.removeAt(i);
   }

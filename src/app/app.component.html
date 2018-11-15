@@ -3,6 +3,10 @@
   <app-operator (formChanged)="onOperatorsChanged($event)"></app-operator>
   <app-second-operand (formChanged)="onSecondOperandsChanged($event)"></app-second-operand>
   <table *ngIf="results.length > 0">
+    <thead>
+      <th>Result</th>
+    </thead>
+
     <tr *ngFor="let result of results"><td>{{result}}</td></tr>
   </table>
 </div>

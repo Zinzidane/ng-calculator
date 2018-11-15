@@ -1,8 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {Validators,
-  FormBuilder,
-  FormGroup,
-  FormArray} from '@angular/forms';
+import { Validators,FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-second-operand',
@@ -12,7 +9,6 @@ import {Validators,
 export class SecondOperandComponent implements OnInit {
   secondOperandForm: FormGroup;
   @Output() formChanged = new EventEmitter();
-
 
   constructor(private fb: FormBuilder) { }
 
@@ -29,7 +25,7 @@ export class SecondOperandComponent implements OnInit {
     this.secondOperandForm.controls['operands'].valueChanges.subscribe(operands => this.formChanged.emit(operands));
   }
 
-  private getOperands() {
+  getOperands() {
     const numberPatern = '^[0-9.,]+$';
     return this.fb.group({
       operand: ['', [Validators.required,
@@ -37,15 +33,13 @@ export class SecondOperandComponent implements OnInit {
     });
   }
 
-    // add new row
-    private addRow() {
-      const control = <FormArray>this.secondOperandForm.controls['operands'];
-      control.push(this.getOperands());
-    }
+  addRow() {
+    const control = <FormArray>this.secondOperandForm.controls['operands'];
+    control.push(this.getOperands());
+  }
 
-    // remove row
-    private removeRow(i: number) {
-      const control = <FormArray>this.secondOperandForm.controls['operands'];;
-      control.removeAt(i);
-    }
+  removeRow(i: number) {
+    const control = <FormArray>this.secondOperandForm.controls['operands'];;
+    control.removeAt(i);
+  }
 }

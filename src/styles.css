@@ -16,6 +16,7 @@ tr {
   border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
+
 td {
   padding: 15px 10px;
   width: 100px;
@@ -29,8 +30,9 @@ input {
 
 .btn {
   margin-top: 15px;
-  padding: 3px;
+  padding: 3px 5px;
   border: none;
+  cursor: pointer;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
 }
 
