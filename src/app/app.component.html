@@ -2,7 +2,7 @@
   <app-first-operand (formChanged)="onFirstOperandsChanged($event)"></app-first-operand>
   <app-operator (formChanged)="onOperatorsChanged($event)"></app-operator>
   <app-second-operand (formChanged)="onSecondOperandsChanged($event)"></app-second-operand>
-  <table *ngIf="results.length > 0">
+  <table class="results" *ngIf="results.length > 0">
     <thead>
       <th>Result</th>
     </thead>
