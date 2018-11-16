@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
           if(this.operators[i].operator === "-" && this.secondOperands[i].operand < 0) {
             expression = this.firstOperands[i].operand + '+' + this.secondOperands[i].operand * -1;
           } else {
-            expression = this.firstOperands[i].operand + this.operators[i].operator + this.secondOperands[i].operand;\
+            expression = this.firstOperands[i].operand + this.operators[i].operator + this.secondOperands[i].operand;
           }
           this.results.push(eval(expression));
         }
